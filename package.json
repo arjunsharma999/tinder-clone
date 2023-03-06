@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+
   "dependencies": {
     "start": "node index.js",
     "@material-ui/core": "^4.12.4",
