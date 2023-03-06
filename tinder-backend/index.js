@@ -5,17 +5,28 @@ import cors from "cors";
 
 const app = express();
 const port = process.env.PORT || 8001;
-const connection_url = 'mongodb+srv://arjun:Arjun@cluster0.qg7qohx.mongodb.net/?retryWrites=true&w=majority'
+const url = 'mongodb+srv://arjun:Arjun@cluster0.qg7qohx.mongodb.net/?retryWrites=true&w=majority'
 
  app.use(express.json());
  app.use(cors());
 
 
-mongoose.connect(connection_url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    //  useCreateIndex: false,
-})
+ async function connect (){
+    try{
+        await mongoose.connect(url);
+        console.log("connected")
+    } catch (error) {
+        console.log(error);
+    }
+ }
+
+
+ connect();
+// mongoose.connect(connection_url, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     //  useCreateIndex: false,
+// })
 
 
 
